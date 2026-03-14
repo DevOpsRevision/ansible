@@ -12,7 +12,7 @@
     ansible.builtin.debug:
       msg: "Hello {{COURSE }}! Course Duration: {{ DURATION }} and Trainer is: {{ TRAINER }}"
   
-  - name: Print Course Information
+  - name: Print Course Information Again
     vars: 
       DURATION: 20hr
     ansible.builtin.debug:
