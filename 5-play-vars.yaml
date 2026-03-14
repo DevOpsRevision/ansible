@@ -9,3 +9,7 @@
   - name: Print Course Information
     ansible.builtin.debug:
       msg: "Hello {{COURSE }}! Course Duration: {{ DURATION }} and Trainer is: {{ TRAINER }}"
+
+  - name: Print Course Information Again
+    ansible.builtin.debug:
+      msg: "Hello {{COURSE }}! Course Duration: {{ DURATION }} and Trainer is: {{ TRAINER }}"
