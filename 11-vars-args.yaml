@@ -1,5 +1,6 @@
 - name: Variables from Inventory
-  hosts: backend
+  hosts: local
+  connection: local
   tasks:
   - name: Print Course Information
     ansible.builtin.debug:
