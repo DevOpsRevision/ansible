@@ -5,11 +5,11 @@
    DURATION: 120 # Number
    COURSE: Ansbile # String
    IS_LIVE: true # Boolean
-   TOOLS: # List
+   TOOLS: # List []
    - Linux
    - Shell
    - Ansible
-   CONCEPTS: #Map or Dictionary or Object
+   CONCEPTS: #Map or Dictionary or Object {}
      CI: Jenkins
      SCRIPTING: "Shell, Ansible, Terraform, Python"
   tasks:
