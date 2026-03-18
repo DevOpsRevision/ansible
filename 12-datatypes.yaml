@@ -3,7 +3,7 @@
   connection: local
   vars:
    DURATION: 120 # Number
-   COURSE: Ansbile # String
+   COURSE: Ansible # String
    IS_LIVE: true # Boolean
    TOOLS: # List []
    - Linux
