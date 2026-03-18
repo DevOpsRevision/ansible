@@ -1,0 +1,12 @@
+- name: Install Packages using Loops
+  hosts: local
+  connection: local
+  become: yes
+  tasks: 
+  - name: Install list of Packages
+    ansible.builtin.dnf:
+      name: "{{ item.name }}" #Here we ensure writing it in quotes
+      state: "{{ item.state }}"
+    loop:
+    - {name: 'mysql', state: 'absent'}
+    - {name: 'nginx', state: 'present'}
