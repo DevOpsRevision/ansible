@@ -1,0 +1,11 @@
+- name: Loops Demo
+  hosts: local
+  connection: local
+  tasks:
+  - name: Print Names
+    ansible.builtin.debug:
+      msg: "Hello, {{ item }}" #Here item is the reserved keyword
+    loop:
+    - Alpha
+    - Beta
+    - Gamma
