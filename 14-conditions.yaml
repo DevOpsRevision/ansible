@@ -1,0 +1,15 @@
+- name: Playbook control using ansible facts
+  hosts: local
+  connection: local
+  tasks:
+  - name: Install nginx if REDHAT
+    ansible.builtin.dnf:
+      name: nginx
+      state: present
+    when: ansible_os_family == "Redhat"
+
+  - name: Install nginx if DEBIAN
+    ansible.builtin.apt:
+      name: nginx
+      state: present
+    when: ansible_os_family == "Debian"
