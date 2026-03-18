@@ -1,6 +1,7 @@
 - name: Playbook control using ansible facts
   hosts: local
   connection: local
+  become: yes
   tasks:
   - name: Install nginx if REDHAT
     ansible.builtin.dnf:
