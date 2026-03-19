@@ -1,0 +1,17 @@
+- name: Functions Demo
+  hosts: local
+  connection: local
+  vars:
+    persons: "Andrew, Brat, Chuck, David"
+  tasks:
+  - name: Check undefined variable
+    ansible.builtin.debug:
+      msg: "Hello! {{ person | default('Jessie') }} "
+
+  - name: Print Names
+    ansible.builtin.debug:
+      msg: "Hello! {{ persons }}"
+
+  - name: Print Names by splitting
+    ansible.builtin.debug:
+      msg: "Hello! {{ persons | split(',') }}"
