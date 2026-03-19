@@ -39,3 +39,9 @@
       name: Naveen Kumar
     ansible.builtin.debug:
       msg: "Name: {{ name | upper }}"
+
+  - name: Convert to Lower Case
+    vars: 
+      name: Naveen Kumar
+    ansible.builtin.debug:
+      msg: "Name: {{ name | lower }}"
