@@ -45,3 +45,9 @@
       name: Naveen Kumar
     ansible.builtin.debug:
       msg: "Name: {{ name | lower }}"
+
+  - name: Check IP Address
+    vars:
+      ipAddress: "300.576.30.29"
+    ansible.builtin.debug:
+      msg: "{{ ipAddress | ansible.utils.ipaddr }}"
