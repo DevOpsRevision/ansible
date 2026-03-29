@@ -1,0 +1,17 @@
+- name: User Creation
+  hosts: local
+  connection: local
+  tasks:
+  - name: Check roboshop user exists or not
+    ansible.builtin.command: id roboshop
+    register: output
+    ignore_errors: true
+
+  - name: Create User
+    ansible.builtin.command: useradd roboshop
+    when: output.rc != 0 #It means if above task fails
+
+  - name: User already exists
+    ansible.builtin.debug:
+      msg: "User already exists"
+    when: output.rc ==0 #It means if above task doesn't fail
