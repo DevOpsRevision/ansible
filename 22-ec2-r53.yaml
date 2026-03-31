@@ -9,6 +9,7 @@
     subnet_id: subnet-05160d290859e4211
     sg_id: sg-0c05c24867a0de439
     ami_id: ami-0220d79f3f480ecf5
+    zone: easydevops.fun
   tasks:
     - name: Create ec2 
       amazon.aws.ec2_instance:
@@ -25,4 +26,16 @@
     - name: Print output
       ansible.builtin.debug:
         msg: "{{ ec2_output }}"
+
+
+    - name: Create Route53 records
+      amazon.aws.route53:
+        state: present
+        zone: "{{ zone }}"
+        record: "{{ item.item }}.{{ zone }}"
+        type: A
+        ttl: 1
+        value: "{{ item.instances[0].private.ip_address }}"
+        wait: true
+      loop: "{{ec2_output.results}}"
 
