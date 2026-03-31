@@ -32,11 +32,10 @@
       amazon.aws.route53:
         state: present
         zone: "{{ zone }}"
-        record: "{{ item.item }}.{{ zone }}"
+        record: "{{ zone if item.item == 'frontend' else item.item ~ '.' ~ zone}}"
         type: A
         ttl: 1
-        value: "{{ item.instances[0].private_ip_address }}"
-        wait: true
+        value: "{{ item.instances[0].public_ip_address if item.item == 'frontend' else item.instances[0].private_ip_address}}"
         overwrite: true
       loop: "{{ ec2_output.results }}"
 
